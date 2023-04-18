@@ -46,6 +46,7 @@ function draw() {
       pintarCasillero(columnaPresionada, filaPresionada, COLOR_CASILLERO_SIN_MINA); //pinta el casillero clickeado. Modificar/completar
       if(tieneMinaCasillero(columnaPresionada, filaPresionada))
       {
+        mostrarMinas();
         perder();
       } 
       else 
@@ -88,6 +89,13 @@ function ponerMinasTablero()
 function mostrarMinas()
 {
   // Modificar/completar
+  for(let x =0; x < 10; i++){
+    for(let y =0; y < 10; i++){
+      if(tieneMinaCasillero(x,y)){
+        pintarCasillero(x,y,COLOR_CASILLERO_CON_MINA);
+      }
+    }
+  }
 }
 
 function contarMinasAlrededor(columna, fila)
