@@ -1,7 +1,7 @@
 //Constantes del juego
 const COLUMNAS = 10;
 const FILAS = 10;
-const CANTIDAD_MINAS = 1;
+const CANTIDAD_MINAS = 5;
 
 //Variables con colores para los casilleros (NO se pudieron declarar como constantes ya que  la fn color sólo está definida para el setup y el draw)
 var COLOR_CASILLERO_CON_MINA;
@@ -30,10 +30,11 @@ function setup()
 
 
   // Modificar/completar
-  ponerMinaCasillero(0,0);
+  
   casillerosSinDescubrir=FILAS*COLUMNAS;
-  ponerMinasTablero();
-  ganoElJuego();
+  for(let i =0; i < 5; i++){
+    ponerMinasTablero()
+  }
 }
 
 
@@ -78,11 +79,9 @@ function ganoElJuego()
 
 function ponerMinasTablero()
 {
-  num1 = floor(random(0,10));
-  num2 = floor(random(0,10));
-  for(let i = 0; i >10; i++){
-
-  }
+  num1 = floor(random()*FILAS);
+  num2 = floor(random()*COLUMNAS);
+  ponerMinaCasillero(num2,num1)
   // Modificar/completar
 }
 
