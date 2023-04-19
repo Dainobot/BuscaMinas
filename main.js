@@ -108,16 +108,13 @@ function mostrarMinas()
 
 function contarMinasAlrededor(columna, fila)
 {
-  /*let cont = 0;
-  let a1 = [-1,0,1,1,1,0,-1,-1];
-  let a2 = [-1,-1,-1,0,1,1,1,0];
-  for(let i = 0; 1 < 8; i++){
+  let cont = 0;
+  let a1 = [-1,0,1,-1,0,1,-1,0,1];
+  let a2 = [-1,-1,-1,0,0,0,1,1,1];
+  for(let i = 0; i < 9; i++){
     if (tieneMinaCasillero(columna+a1[i],fila+a2[i])){
       cont++;
     }
   }
   return cont;   
-
-  */
-  return 9;
 }
