@@ -83,10 +83,10 @@ function ponerMinasTablero()
     
     let cant = 0;
     while(cant < CANTIDAD_MINAS){
-      numeroRandomFil = Math.floor(Math.random()*FILAS);
-      numeroRandomCol = Math.floor(Math.random()*COLUMNAS);
-      if(!tieneMinaCasillero(numeroRandomCol,numeroRandomFil)){
-        ponerMinaCasillero(numeroRandomCol, numeroRandomFil);
+      num1 = Math.floor(Math.random()*FILAS);
+      num2 = Math.floor(Math.random()*COLUMNAS);
+      if(!tieneMinaCasillero(num2,num1)){
+        ponerMinaCasillero(num2, num1);
         cant ++;
       }  
      
