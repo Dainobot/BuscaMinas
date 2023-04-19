@@ -1,7 +1,7 @@
 //Constantes del juego
 const COLUMNAS = 10;
 const FILAS = 10;
-const CANTIDAD_MINAS = 99;
+const CANTIDAD_MINAS = 5;
 
 //Variables con colores para los casilleros (NO se pudieron declarar como constantes ya que  la fn color sólo está definida para el setup y el draw)
 var COLOR_CASILLERO_CON_MINA;
@@ -32,9 +32,8 @@ function setup()
   // Modificar/completar
   
   casillerosSinDescubrir=FILAS*COLUMNAS;
-  for(let i =0; i < 99; i++){
-    ponerMinasTablero()
-  }
+
+  ponerMinasTablero();
 }
 
 
@@ -44,10 +43,11 @@ function draw() {
     if(mouseButton == LEFT)
     {
       pintarCasillero(columnaPresionada, filaPresionada, COLOR_CASILLERO_SIN_MINA); //pinta el casillero clickeado. Modificar/completar
+      
       if(tieneMinaCasillero(columnaPresionada, filaPresionada))
       {
-        perder();
         mostrarMinas();
+        perder();
       } 
       else 
       {
@@ -81,16 +81,17 @@ function ganoElJuego()
 function ponerMinasTablero()
 {
     
-  let cant = 0;
-  while(cant < CANTIDAD_MINAS){
-    numeroRandomFil = floor(random()*FILAS);
-    numeroRandomCol = floor(random()*COLUMNAS);
-    if(!tieneMinaCasillero(numeroRandomCol,numeroRandomFil)){
-      ponerMinaCasillero(numeroRandomCol, numeroRandomFil);
-      cant ++;
-    }  
-    
-  }
+    let cant = 0;
+    while(cant < CANTIDAD_MINAS){
+      numeroRandomFil = Math.floor(Math.random()*FILAS);
+      numeroRandomCol = Math.floor(Math.random()*COLUMNAS);
+      if(!tieneMinaCasillero(numeroRandomCol,numeroRandomFil)){
+        ponerMinaCasillero(numeroRandomCol, numeroRandomFil);
+        cant ++;
+      }  
+     
+    }
+
 }
 
 function mostrarMinas()
@@ -107,5 +108,16 @@ function mostrarMinas()
 
 function contarMinasAlrededor(columna, fila)
 {
-  return 9;   //Esto hace que SIEMPRE cuente 9 minas alrededor. Modificar/completar
+  /*let cont = 0;
+  let a1 = [-1,0,1,1,1,0,-1,-1];
+  let a2 = [-1,-1,-1,0,1,1,1,0];
+  for(let i = 0; 1 < 8; i++){
+    if (tieneMinaCasillero(columna+a1[i],fila+a2[i])){
+      cont++;
+    }
+  }
+  return cont;   
+
+  */
+  return 9;
 }
